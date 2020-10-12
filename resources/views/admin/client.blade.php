@@ -30,7 +30,8 @@
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" class="form-control" />
+                    <input type="text" name="email" id="email" class="form-control @if($errors->has('email')) is-invalid @endif"/>
+                    <div class="invalid-feedback">{{$errors->first('email')}}</div>
                 </div>
 
                 <div class="form-group">
