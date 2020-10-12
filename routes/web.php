@@ -31,6 +31,17 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkadmin'], function () {
         Route::get('add', [App\Http\Controllers\Admin\VehicleController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\VehicleController::class, 'saveVehicle']);
     });
+
+    Route::prefix('driver')->group(function(){
+        Route::get('add', [App\Http\Controllers\Admin\DriverController::class, 'index']);
+        Route::post('add', [App\Http\Controllers\Admin\DriverController::class, 'saveDriver']);
+    });
+
+    Route::prefix('client')->group(function(){
+        Route::get('add', [App\Http\Controllers\Admin\ClientController::class, 'index']);
+        Route::post('add', [App\Http\Controllers\Admin\ClientController::class, 'saveClient']);
+    });
+
 });
 
 Route::group(['prefix' => 'client',  'middleware' => 'auth'], function () {

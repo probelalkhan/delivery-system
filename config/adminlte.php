@@ -237,12 +237,20 @@ return [
             'topnav' => true,
         ],
         [
-            'text' => 'Add Carrier',
+            'text' => 'Carrier',
             'url'=>'admin/carrier/add'
         ],
         [
-            'text' => 'Add Vehicle',
+            'text' => 'Vehicle',
             'url' => 'admin/vehicle/add'
+        ],
+        [
+            'text' => 'Driver',
+            'url' => 'admin/driver/add'
+        ],
+        [
+            'text' => 'Client',
+            'url' => 'admin/client/add'
         ]
     ],
     /*
