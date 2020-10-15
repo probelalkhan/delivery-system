@@ -25,6 +25,7 @@ class CarrierController extends Controller
         $carrier->framework = $request->framework;
         $carrier->scope = $request->scope;
         $carrier->save();
+        $request->session()->flash('alert-success', 'Carrier successful added!');
         return redirect('admin/carrier/add');
     }
 

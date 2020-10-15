@@ -24,6 +24,7 @@ class VehicleController extends Controller
         $vehicle->category = $request->category;
         $vehicle->carrier_id = $request->carrier_id;
         $vehicle->save();
+        $request->session()->flash('alert-success', 'Vehicle successful added!');
         return redirect('admin/vehicle/add');
     }
 

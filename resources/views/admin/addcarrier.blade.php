@@ -12,6 +12,9 @@
         <div class="col-md-12">
             <div class='card' style="width:50%; margin:12px auto;">
                 <div class="card-body">
+
+                    @include('admin.result')
+
                     <form class="form" method="POST" action="{{ Request::url() }}">
 
                         @csrf

@@ -36,6 +36,8 @@ class ClientController extends Controller
         $user->password = bcrypt(config('global.client_default_password'));
         $user->save();
 
+        $request->session()->flash('alert-success', 'Client successful added!');
+
         return redirect()->back();
     }
 

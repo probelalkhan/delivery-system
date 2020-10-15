@@ -37,6 +37,7 @@ class DriverController extends Controller
         $driver->professional_training = $request->professional_training;
         $driver->carrier_id = $request->carrier_id;
         $driver->save();
+        $request->session()->flash('alert-success', 'Driver successful added!');
         return redirect()->back();
     }
 
