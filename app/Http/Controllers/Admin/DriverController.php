@@ -39,4 +39,11 @@ class DriverController extends Controller
         $driver->save();
         return redirect()->back();
     }
+
+    public function allDrivers(){
+        $drivers = Driver::all();
+        return view('admin.drivers',[
+            'drivers' => $drivers
+        ]);
+    }
 }

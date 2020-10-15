@@ -11,10 +11,7 @@ class ClientController extends Controller
 {
 
     public function index(){
-        $clients = Client::all();
-        return view('admin.client',[
-            'clients' => $clients
-        ]);
+        return view('admin.client');
     }
 
     public function saveClient(Request $request){
@@ -40,5 +37,12 @@ class ClientController extends Controller
         $user->save();
 
         return redirect()->back();
+    }
+
+    public function allClients(){
+        $clients = Client::all();
+        return view('admin.clients',[
+            'clients' => $clients
+        ]);
     }
 }

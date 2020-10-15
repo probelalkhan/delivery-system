@@ -23,21 +23,25 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkadmin'], function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index']);
 
     Route::prefix('carrier')->group(function(){
+        Route::get('/', [App\Http\Controllers\Admin\CarrierController::class, 'allCarriers']);
         Route::get('add', [App\Http\Controllers\Admin\CarrierController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\CarrierController::class, 'saveCarrier']);
     });
 
     Route::prefix('vehicle')->group(function(){
+        Route::get('/', [App\Http\Controllers\Admin\VehicleController::class, 'allVehicles']);
         Route::get('add', [App\Http\Controllers\Admin\VehicleController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\VehicleController::class, 'saveVehicle']);
     });
 
     Route::prefix('driver')->group(function(){
+        Route::get('/', [App\Http\Controllers\Admin\DriverController::class, 'allDrivers']);
         Route::get('add', [App\Http\Controllers\Admin\DriverController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\DriverController::class, 'saveDriver']);
     });
 
     Route::prefix('client')->group(function(){
+        Route::get('/', [App\Http\Controllers\Admin\ClientController::class, 'allClients']);
         Route::get('add', [App\Http\Controllers\Admin\ClientController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\ClientController::class, 'saveClient']);
     });

@@ -11,9 +11,7 @@ class CarrierController extends Controller
 
     public function index(){
         $carriers = Carrier::all();
-        return view('admin.addcarrier',[
-            'carriers'=> $carriers
-        ]);
+        return view('admin.addcarrier');
     }
 
     public function saveCarrier(Request $request){
@@ -27,8 +25,13 @@ class CarrierController extends Controller
         $carrier->framework = $request->framework;
         $carrier->scope = $request->scope;
         $carrier->save();
-
         return redirect('admin/carrier/add');
     }
 
+    public function allCarriers(){
+        $carriers = Carrier::all();
+        return view('admin.carriers',[
+            'carriers'=> $carriers
+        ]);
+    }
 }

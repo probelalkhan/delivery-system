@@ -26,4 +26,11 @@ class VehicleController extends Controller
         $vehicle->save();
         return redirect('admin/vehicle/add');
     }
+
+    public function allVehicles(){
+        $vehicles = Vehicle::all();
+        return view('admin.vehicles',[
+            'vehicles'=>$vehicles
+        ]);
+    }
 }

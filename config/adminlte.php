@@ -237,20 +237,73 @@ return [
             'topnav' => true,
         ],
         [
+            'text' => 'Orders',
+            'url' => '#',
+            'icon' => 'fa fa-archive'
+        ],
+        [
             'text' => 'Carrier',
-            'url'=>'admin/carrier/add'
+            'icon' => 'fa fa-building',
+            'submenu' => [
+                [
+                    'text'=>'Add Carrier',
+                    'url'=>'admin/carrier/add',
+                    'icon'=>'fa fa-plus-circle'
+                ],
+                [
+                    'text'=>'View All',
+                    'url'=>'admin/carrier',
+                    'icon'=>'fa fa-list'
+                ]
+            ]
         ],
         [
             'text' => 'Vehicle',
-            'url' => 'admin/vehicle/add'
+            'icon' => 'fa fa-bus',
+            'submenu' => [
+                [
+                    'text'=>'Add Vehicle',
+                    'url'=>'admin/vehicle/add',
+                    'icon'=>'fa fa-plus-circle'
+                ],
+                [
+                    'text'=>'View All',
+                    'url' => 'admin/vehicle',
+                    'icon'=>'fa fa-list'
+                ]
+            ]
         ],
         [
             'text' => 'Driver',
-            'url' => 'admin/driver/add'
+            'icon' => 'fa fa-id-card',
+            'submenu' => [
+                [
+                    'text'=>'Add Driver',
+                    'icon'=>'fa fa-plus-circle',
+                    'url' => 'admin/driver/add'
+                ],
+                [
+                    'text'=>'View All',
+                    'icon'=>'fa fa-list',
+                    'url'=>'admin/driver'
+                ]
+            ]
         ],
         [
             'text' => 'Client',
-            'url' => 'admin/client/add'
+            'icon' => 'fa fa-users',
+            'submenu' => [
+                [
+                    'text'=>'Add Client',
+                    'icon'=>'fa fa-plus-circle',
+                    'url' => 'admin/client/add',
+                ],
+                [
+                    'text'=>'All Clients',
+                    'icon'=>'fa fa-list',
+                    'url' => 'admin/client',
+                ]
+            ]
         ]
     ],
     /*
