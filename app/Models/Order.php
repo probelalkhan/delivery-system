@@ -9,7 +9,14 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function address(){
-        return $this->belongsTo('\App\Models\Address');
+    public function pickupAddress(){
+        return $this->belongsTo('\App\Models\Address', 'address_pickup');
     }
+
+
+    public function deliveryAddress(){
+        return $this->belongsTo('\App\Models\Address', 'address_delivery');
+    }
+
+
 }

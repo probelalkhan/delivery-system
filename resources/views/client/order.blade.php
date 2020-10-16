@@ -20,8 +20,17 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="addressid">Select Address</label>
-                            <select id="addressid" name="addressid" class="form-control">
+                            <label for="pickupaddress">Select Pickup Address</label>
+                            <select id="pickupaddress" name="pickupaddress" class="form-control">
+                                @foreach ($addresses as $address)
+                                    <option value="{{ $address->id }}">{{ $address->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deliveryaddress">Select Delivery Address</label>
+                            <select id="deliveryaddress" name="deliveryaddress" class="form-control">
                                 @foreach ($addresses as $address)
                                     <option value="{{ $address->id }}">{{ $address->title }}</option>
                                 @endforeach

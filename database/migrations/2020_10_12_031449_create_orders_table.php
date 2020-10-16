@@ -15,7 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('address_id')->nullable();
+            $table->unsignedBigInteger('address_pickup')->nullable();
+            $table->unsignedBigInteger('address_delivery')->nullable();
             $table->string('title')->nullable();
             $table->string('nature_container')->nullable();
             $table->string('packaging')->nullable();
@@ -28,7 +29,8 @@ class CreateOrdersTable extends Migration
             $table->string('note')->nullable();
             $table->timestamps();
 
-            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
+            $table->foreign('address_pickup')->references('id')->on('addresses')->onDelete('cascade');
+            $table->foreign('address_delivery')->references('id')->on('addresses')->onDelete('cascade');
         });
     }
 

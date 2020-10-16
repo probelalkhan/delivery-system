@@ -18,7 +18,8 @@ class OrderController extends Controller
 
     public function saveOrder(Request $request){
         $order = new Order();
-        $order->address_id = $request->addressid;
+        $order->address_pickup = $request->pickupaddress;
+        $order->address_delivery = $request->deliveryaddress;
         $order->title = $request->title;
         $order->nature_container = $request->naturecontainer;
         $order->packaging = $request->packaging;

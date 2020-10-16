@@ -15,7 +15,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Address</th>
+                                <th>Address Pickup</th>
+                                <th>Address Delivery</th>
                                 <th>Title</th>
                                 <th>Nature Container</th>
                                 <th>Packaging</th>
@@ -30,7 +31,8 @@
                             @foreach ($orders as $order)
                                 <tr>
                                     <td>{{ $order->id }}</td>
-                                    <td>{{ $order->address->title }}</td>
+                                    <td>{{ $order->pickupAddress->title }}</td>
+                                    <td>{{ $order->deliveryAddress->title }}</td>
                                     <td>{{ $order->title }}</td>
                                     <td>{{ $order->nature_container }}</td>
                                     <td>{{ $order->packaging }}</td>
