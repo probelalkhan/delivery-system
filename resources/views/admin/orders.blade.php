@@ -47,7 +47,7 @@
                                     <td>{{ $order->pickup }}</td>
                                     <td>{{ $order->delivery }}</td>
                                     <td>{{ $order->note }}</td>
-                                    <td><a href="#" class="link">Edit</a></td>
+                                    <td><a href="{{ Request::url() . '/' . $order->id}}" class="link">Manage Order</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
