@@ -22,6 +22,11 @@ Auth::routes();
 Route::group(['prefix' => 'admin',  'middleware' => 'checkadmin'], function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index']);
 
+
+    Route::prefix('order')->group(function(){
+        Route::get('/', [App\Http\Controllers\Admin\OrderController::class, 'index']);
+    });
+
     Route::prefix('carrier')->group(function(){
         Route::get('/', [App\Http\Controllers\Admin\CarrierController::class, 'allCarriers']);
         Route::get('add', [App\Http\Controllers\Admin\CarrierController::class, 'index']);

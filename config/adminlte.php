@@ -238,7 +238,7 @@ return [
         ],
         [
             'text' => 'Orders',
-            'url' => '#',
+            'url' => '/admin/order',
             'icon' => 'fa fa-archive',
             'can' => 'admin'
         ],
