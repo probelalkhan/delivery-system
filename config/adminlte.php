@@ -326,6 +326,23 @@ return [
                     'url' => 'client/address'
                 ]
             ]
+        ],
+        [
+            'text' => 'Order',
+            'icon' => 'fa fa-shopping-cart',
+            'can' => 'client',
+            'submenu' => [
+                [
+                    'text'=>'Add Order',
+                    'icon'=>'fa fa-plus',
+                    'url' => 'client/order/add',
+                ],
+                [
+                    'text'=>'All Orders',
+                    'icon'=>'fa fa-list',
+                    'url' => 'client/order'
+                ]
+            ]
         ]
     ],
     /*
