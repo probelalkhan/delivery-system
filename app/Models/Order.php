@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    public function address(){
+        return $this->belongsTo('\App\Models\Address');
+    }
 }

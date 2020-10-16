@@ -22,10 +22,23 @@
                                 <th>Postal Code</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($addresses as $address)
+                                <tr>
+                                    <td>{{ $address->id }}</td>
+                                    <td>{{ $address->client->company_name }}</td>
+                                    <td>{{ $address->title }}</td>
+                                    <td>{{ $address->address }}</td>
+                                    <td>{{ $address->city }}</td>
+                                    <td>{{ $address->postal_code }}</td>
+                                    <td>{{ $address->latitude }}</td>
+                                    <td>{{ $address->longitude }}</td>
+                                    <td><a href="#" class="link">Edit</a></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

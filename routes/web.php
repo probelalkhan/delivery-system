@@ -57,6 +57,12 @@ Route::group(['prefix' => 'client',  'middleware' => 'checkclient'], function ()
         Route::post('/add', [App\Http\Controllers\Client\AddressController::class, 'saveAddress']);
     });
 
+    Route::prefix('order')->group(function(){
+        Route::get('/', [App\Http\Controllers\Client\OrderController::class, 'allOrders']);
+        Route::get('/add', [App\Http\Controllers\Client\OrderController::class, 'index']);
+        Route::post('/add', [App\Http\Controllers\Client\OrderController::class, 'saveOrder']);
+    });
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

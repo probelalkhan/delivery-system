@@ -20,7 +20,7 @@ class CreateAddressesTable extends Migration
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('postal_code')->nullable();
-            $table->string('lattitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->timestamps();
 
