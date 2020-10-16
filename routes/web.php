@@ -48,8 +48,15 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkadmin'], function () {
 
 });
 
-Route::group(['prefix' => 'client',  'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'client',  'middleware' => 'checkclient'], function () {
     Route::get('/', [App\Http\Controllers\Client\HomeController::class, 'index']);
+
+    Route::prefix('address')->group(function(){
+        Route::get('/', [App\Http\Controllers\Client\AddressController::class, 'allAddresses']);
+        Route::get('/add', [App\Http\Controllers\Client\AddressController::class, 'index']);
+        Route::post('/add', [App\Http\Controllers\Client\AddressController::class, 'saveAddress']);
+    });
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

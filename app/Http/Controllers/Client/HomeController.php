@@ -9,6 +9,6 @@ use Illuminate\Http\Request;
 class HomeController extends BaseController
 {
     public function index(){
-        return "<h1>Client Home</h1>";
+        return view('client.home');
     }
 }

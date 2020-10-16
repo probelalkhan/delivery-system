@@ -239,11 +239,13 @@ return [
         [
             'text' => 'Orders',
             'url' => '#',
-            'icon' => 'fa fa-archive'
+            'icon' => 'fa fa-archive',
+            'can' => 'admin'
         ],
         [
             'text' => 'Carrier',
             'icon' => 'fa fa-building',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text'=>'Add Carrier',
@@ -260,6 +262,7 @@ return [
         [
             'text' => 'Vehicle',
             'icon' => 'fa fa-bus',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text'=>'Add Vehicle',
@@ -276,6 +279,7 @@ return [
         [
             'text' => 'Driver',
             'icon' => 'fa fa-id-card',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text'=>'Add Driver',
@@ -292,6 +296,7 @@ return [
         [
             'text' => 'Client',
             'icon' => 'fa fa-users',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text'=>'Add Client',
@@ -302,6 +307,23 @@ return [
                     'text'=>'All Clients',
                     'icon'=>'fa fa-list',
                     'url' => 'admin/client',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Address',
+            'icon' => 'fa fa-address-book',
+            'can' => 'client',
+            'submenu' => [
+                [
+                    'text'=>'Add Address',
+                    'icon'=>'fa fa-plus',
+                    'url' => 'client/address/add',
+                ],
+                [
+                    'text'=>'All Addresses',
+                    'icon'=>'fa fa-list',
+                    'url' => 'client/address'
                 ]
             ]
         ]
