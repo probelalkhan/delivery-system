@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function index(){
         $orders = Order::all();
-        return view('client.orders',[
+        return view('admin.orders',[
             'orders'=>$orders
         ]);
     }
