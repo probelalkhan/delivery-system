@@ -86,7 +86,7 @@
                         <table>
                             <tr>
                                 <th>Vehicle</th>
-                                <td>{{ $vehicle->brand . ' - ' . $vehicle->reference }}</td>
+                                <td>{{ $delivery->vehicle->brand . ' - ' . $delivery->vehicle->reference }}</td>
                             </tr>
                             <tr>
                                 <th>Driver</th>
