@@ -86,7 +86,7 @@
                         <table>
                             <tr>
                                 <th>Vehicle</th>
-                                <td>{{ $delivery->vehicle->category }}</td>
+                                <td>{{ $vehicle->brand . ' - ' . $vehicle->reference }}</td>
                             </tr>
                             <tr>
                                 <th>Driver</th>
@@ -125,7 +125,7 @@
                             <label for="vehicleid">Select Vehicle</label>
                             <select id="vehicleid" name="vehicleid" class="custom-select">
                                 @foreach ($vehicles as $vehicle)
-                                    <option value="{{ $vehicle->id }}">{{ $vehicle->category }}</option>
+                                    <option value="{{ $vehicle->id }}">{{ $vehicle->brand . ' - ' . $vehicle->reference }}</option>
                                 @endforeach
                             </select>
                         </div>
