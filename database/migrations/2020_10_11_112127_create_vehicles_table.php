@@ -17,6 +17,9 @@ class CreateVehiclesTable extends Migration
             $table->id();
             $table->string('category')->nullable();
             $table->unsignedBigInteger('carrier_id')->nullable();
+            $table->string('brand')->nullable();
+            $table->string('reference')->nullable();
+            $table->date('date_of_circulation')->nullable();
             $table->timestamps();
             $table->foreign('carrier_id')->references('id')->on('carriers')->onDelete('cascade');;
         });

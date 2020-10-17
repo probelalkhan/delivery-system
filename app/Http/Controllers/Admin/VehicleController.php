@@ -23,6 +23,9 @@ class VehicleController extends Controller
         $vehicle = new Vehicle();
         $vehicle->category = $request->category;
         $vehicle->carrier_id = $request->carrier_id;
+        $vehicle->brand = $request->brand;
+        $vehicle->reference = $request->reference;
+        $vehicle->date_of_circulation = $request->dateofcirculation;
         $vehicle->save();
         $request->session()->flash('alert-success', 'Vehicle successful added!');
         return redirect('admin/vehicle/add');

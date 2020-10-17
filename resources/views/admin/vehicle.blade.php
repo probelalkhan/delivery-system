@@ -33,6 +33,21 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="brand">Brand</label>
+                            <input type="text" id="brand" name="brand" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reference">Reference</label>
+                            <input type="text" id="reference" name="reference" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateofcirculation">Date of Circulation</label>
+                            <input type="date" id="dateofcirculation" name="dateofcirculation" class="form-control" />
+                        </div>
+
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Save Vehicle</button>
