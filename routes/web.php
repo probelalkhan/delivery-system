@@ -22,9 +22,10 @@ Auth::routes();
 Route::group(['prefix' => 'admin',  'middleware' => 'checkadmin'], function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index']);
 
-
     Route::prefix('order')->group(function(){
         Route::get('/', [App\Http\Controllers\Admin\OrderController::class, 'index']);
+        Route::get('/{order_id}', [App\Http\Controllers\Admin\OrderController::class, 'orderDetail']);
+        Route::post('/{order_id}', [App\Http\Controllers\Admin\OrderController::class, 'saveDelivery']);
     });
 
     Route::prefix('carrier')->group(function(){
