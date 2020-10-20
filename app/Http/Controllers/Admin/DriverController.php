@@ -10,17 +10,24 @@ use Illuminate\Http\Request;
 class DriverController extends Controller
 {
 
-    public function index(){
+    public function index(Request $request){
+        $driver = Driver::find($request->driver_id);
         $drivers = Driver::all();
         $carriers = Carrier::all();
         return view('admin.driver',[
             'drivers' => $drivers,
-            'carriers' => $carriers
+            'carriers' => $carriers,
+            'driver'=>$driver
         ]);
     }
 
     public function saveDriver(Request $request){
-        $driver = new Driver();
+
+        if($request->driver_id == -1)
+            $driver = new Driver();
+        else
+            $driver = Driver::find($request->driver_id);
+
         $driver->first_name = $request->first_name;
         $driver->last_name = $request->last_name;
         $driver->dob = $request->dob;
@@ -37,7 +44,7 @@ class DriverController extends Controller
         $driver->professional_training = $request->professional_training;
         $driver->carrier_id = $request->carrier_id;
         $driver->save();
-        $request->session()->flash('alert-success', 'Driver successful added!');
+        $request->session()->flash('alert-success', 'Driver successful added/updated!');
         return redirect()->back();
     }
 
@@ -46,5 +53,11 @@ class DriverController extends Controller
         return view('admin.drivers',[
             'drivers' => $drivers
         ]);
+    }
+
+    public function deleteDriver(Request $request){
+        $driver = Driver::find($request->driver_id);
+        $driver->delete();
+        return redirect()->back();
     }
 }

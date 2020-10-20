@@ -32,7 +32,10 @@
                                     <td>{{ $driver->licence }}</td>
                                     <td>{{ $driver->carrier->company_name }}</td>
                                     <td>{{ $driver->vehicle_category }}</td>
-                                    <td><a href="#" class="link">Edit</a></td>
+                                    <td>
+                                        <a href="driver/add?driver_id={{$driver->id}}" class="link">Edit</a>&nbsp;
+                                        <a href="#" data-tag="{{ $driver->id }}" class="link text-danger link-delete" data-toggle="modal" data-target="#confirmationModal">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -41,4 +44,17 @@
             </div>
         </div>
     </div>
+
+    @include('commons.confirmationdialog')
+
 @stop
+
+@section('js')
+<script>
+    $(".link-delete").click(function(){
+        var id = $(this).data('tag');
+        $("#confirmationForm").attr('action','/admin/driver/delete/'+id);
+    });
+</script>
+@stop
+

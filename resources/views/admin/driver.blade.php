@@ -16,44 +16,47 @@
 
                         @csrf
 
+                        <input type="hidden" value="{{ $driver->id ?? -1 }}" name="driver_id" />
+
+
                         <div class="form-group">
                             <label for="first_name">First Name</label>
-                            <input type="text" name="first_name" id="first_name" class="form-control" />
+                            <input value="{{ $driver->first_name ?? '' }}" type="text" name="first_name" id="first_name" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="last_name">Last Name</label>
-                            <input type="text" name="last_name" id="last_name" class="form-control" />
+                            <input value="{{ $driver->last_name ?? '' }}" type="text" name="last_name" id="last_name" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="dob">Date of Birth</label>
-                            <input type="date" name="dob" id="dob" class="form-control" />
+                            <input value="{{ $driver->dob ?? '' }}" type="date" name="dob" id="dob" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="driving_licence">Driving Licence</label>
-                            <input type="text" name="driving_licence" id="driving_licence" class="form-control" />
+                            <input value="{{ $driver->driving_licence ?? '' }}" type="text" name="driving_licence" id="driving_licence" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="year_permit">Year Permit</label>
-                            <input type="number" name="year_permit" id="year_permit" class="form-control" />
+                            <input value="{{ $driver->year_permit ?? '' }}" type="number" name="year_permit" id="year_permit" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="experience">Experience (Years)</label>
-                            <input type="number" name="experience" id="experience" class="form-control" />
+                            <input value="{{ $driver->experience ?? '' }}" type="number" name="experience" id="experience" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="no_of_companies">Number of Companies</label>
-                            <input type="text" name="no_of_companies" id="no_of_companies" class="form-control" />
+                            <input value="{{ $driver->no_of_companies ?? '' }}" type="text" name="no_of_companies" id="no_of_companies" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="vehicle_category">Vehicle Category</label>
-                            <input type="text" name="vehicle_category" id="vehicle_category" class="form-control" />
+                            <input value="{{ $driver->vehicle_category ?? '' }}" type="text" name="vehicle_category" id="vehicle_category" class="form-control" />
                         </div>
 
                         <div class="form-group">
@@ -65,27 +68,27 @@
                         </div>
                         <div class="form-group">
                             <label for="delivery_mode">Delivery Mode</label>
-                            <input type="text" name="delivery_mode" id="delivery_mode" class="form-control" />
+                            <input value="{{ $driver->delivery_mode ?? '' }}" type="text" name="delivery_mode" id="delivery_mode" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="enterprise_category">Enterprise Category</label>
-                            <input type="text" name="enterprise_category" id="enterprise_category" class="form-control" />
+                            <input value="{{ $driver->enterprise_category ?? '' }}" type="text" name="enterprise_category" id="enterprise_category" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="commodity_nature">Commodity Nature</label>
-                            <input type="text" name="commodity_nature" id="commodity_nature" class="form-control" />
+                            <input value="{{ $driver->commodity_nature ?? '' }}" type="text" name="commodity_nature" id="commodity_nature" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="avg_stay">Average Stay</label>
-                            <input type="text" name="avg_stay" id="avg_stay" class="form-control" />
+                            <input value="{{ $driver->avg_stay ?? '' }}" type="text" name="avg_stay" id="avg_stay" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="professional_training">Professional Training</label>
-                            <input type="text" name="professional_training" id="professional_training" class="form-control" />
+                            <input value="{{ $driver->professional_training ?? '' }}" type="text" name="professional_training" id="professional_training" class="form-control" />
                         </div>
 
                         <div class="form-group">
@@ -98,7 +101,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save Driver</button>
+                            <button type="submit" class="btn btn-primary"> {{ $driver == null ? 'Save Driver' : 'Update Driver' }}</button>
                         </div>
                     </form>
                 </div>
