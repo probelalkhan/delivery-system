@@ -16,44 +16,46 @@
 
                         @csrf
 
+                        <input type="hidden" value="{{ $client->id ?? -1 }}" name="client_id" />
+
                         <div class="form-group">
                             <label for="company_name">Company Name</label>
-                            <input type="text" id="company_name" name="company_name" class="form-control" />
+                            <input value="{{ $client->company_name ?? '' }}" type="text" id="company_name" name="company_name" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="ice">ICE</label>
-                            <input type="text" id="ice" name="ice" class="form-control" />
+                            <input value="{{ $client->ice ?? '' }}" type="text" id="ice" name="ice" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" id="phone" name="phone" class="form-control" />
+                            <input value="{{ $client->phone ?? '' }}" type="text" id="phone" name="phone" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" name="email" id="email" class="form-control @if($errors->has('email')) is-invalid @endif"/>
+                            <input value="{{ $client->email ?? '' }}" type="text" name="email" id="email" class="form-control @if($errors->has('email')) is-invalid @endif"/>
                             <div class="invalid-feedback">{{$errors->first('email')}}</div>
                         </div>
 
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" id="address" name="address" class="form-control" />
+                            <input value="{{ $client->address ?? '' }}" type="text" id="address" name="address" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="activities">Activities</label>
-                            <input type="text" id="activities" name="activities" class="form-control" />
+                            <input value="{{ $client->activities ?? '' }}" type="text" id="activities" name="activities" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="agreement">Agreement</label>
-                            <input type="text" id="agreement" name="agreement" class="form-control" />
+                            <input value="{{ $client->agreement ?? '' }}" type="text" id="agreement" name="agreement" class="form-control" />
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save Client</button>
+                            <button type="submit" class="btn btn-primary">{{ $client == null ? "Save Client" : "Update Client" }}</button>
                         </div>
                     </form>
                 </div>

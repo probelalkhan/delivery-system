@@ -30,7 +30,10 @@
                                     <td>{{ $client->ice }}</td>
                                     <td>{{ $client->phone }}</td>
                                     <td>{{ $client->address }}</td>
-                                    <td><a href="#" class="link">Edit</a></td>
+                                    <td>
+                                        <a href="/admin/client/add?client_id={{ $client->id }}" class="link">Edit</a>&nbsp;
+                                        <a href="#" data-tag="{{ $client->id }}" class="link text-danger link-delete" data-toggle="modal" data-target="#confirmationModal">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -39,4 +42,16 @@
             </div>
         </div>
     </div>
+    @include('commons.confirmationdialog')
+
 @stop
+
+@section('js')
+<script>
+    $(".link-delete").click(function(){
+        var id = $(this).data('tag');
+        $("#confirmationForm").attr('action','/admin/client/delete/'+id);
+    });
+</script>
+@stop
+

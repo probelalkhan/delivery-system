@@ -10,17 +10,31 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
 
-    public function index(){
-        return view('admin.client');
+    public function index(Request $request){
+        $client = Client::find($request->client_id);
+        return view('admin.client',[
+            'client' => $client
+        ]);
     }
 
     public function saveClient(Request $request){
 
         $request->validate([
-            'email' => 'required|unique:users,email,' . $request->email
+            'email' => 'required|unique:clients,email,' . $request->client_id
         ]);
 
-        $client = new Client();
+        $client = null;
+        $user = null;
+
+        if($request->client_id == -1){
+            $client = new Client();
+            $user = new User();
+        }
+        else{
+            $client = Client::find($request->client_id);
+            $user = User::where('email', $client->email)->first();
+        }
+
         $client->company_name = $request->company_name;
         $client->ice = $request->ice;
         $client->phone = $request->phone;
@@ -30,13 +44,12 @@ class ClientController extends Controller
         $client->agreement = $request->agreement;
         $client->save();
 
-        $user = new User();
         $user->name = $request->company_name;
         $user->email = $request->email;
         $user->password = bcrypt(config('global.client_default_password'));
         $user->save();
 
-        $request->session()->flash('alert-success', 'Client successful added!');
+        $request->session()->flash('alert-success', 'Client successful added/updated!');
 
         return redirect()->back();
     }
@@ -46,5 +59,13 @@ class ClientController extends Controller
         return view('admin.clients',[
             'clients' => $clients
         ]);
+    }
+
+    public function deleteClient(Request $request){
+        $client = Client::find($request->client_id);
+        $user = User::where('email', $client->email)->first();
+        $user->delete();
+        $client->delete();
+        return redirect()->back();
     }
 }

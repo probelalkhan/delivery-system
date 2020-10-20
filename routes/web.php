@@ -39,18 +39,21 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkadmin'], function () {
         Route::get('/', [App\Http\Controllers\Admin\VehicleController::class, 'allVehicles']);
         Route::get('add', [App\Http\Controllers\Admin\VehicleController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\VehicleController::class, 'saveVehicle']);
+        Route::post('delete/{vehicle_id}', [App\Http\Controllers\Admin\VehicleController::class, 'deleteVehicle']);
     });
 
     Route::prefix('driver')->group(function(){
         Route::get('/', [App\Http\Controllers\Admin\DriverController::class, 'allDrivers']);
         Route::get('add', [App\Http\Controllers\Admin\DriverController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\DriverController::class, 'saveDriver']);
+        Route::post('delete/{driver_id}', [App\Http\Controllers\Admin\DriverController::class, 'deleteDriver']);
     });
 
     Route::prefix('client')->group(function(){
         Route::get('/', [App\Http\Controllers\Admin\ClientController::class, 'allClients']);
         Route::get('add', [App\Http\Controllers\Admin\ClientController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\ClientController::class, 'saveClient']);
+        Route::post('delete/{client_id}', [App\Http\Controllers\Admin\ClientController::class, 'deleteClient']);
     });
 
 });
