@@ -31,7 +31,7 @@
                                     <td>{{ $client->phone }}</td>
                                     <td>{{ $client->address }}</td>
                                     <td>
-                                        <a href="/admin/client/add?client_id={{ $client->id }}" class="link">Edit</a>&nbsp;
+                                        <a href="{{ URL::to('/admin/client/add?client_id='.$client->id) }}" class="link">Edit</a>&nbsp;
                                         <a href="#" data-tag="{{ $client->id }}" class="link text-danger link-delete" data-toggle="modal" data-target="#confirmationModal">Delete</a>
                                     </td>
                                 </tr>
@@ -50,7 +50,9 @@
 <script>
     $(".link-delete").click(function(){
         var id = $(this).data('tag');
-        $("#confirmationForm").attr('action','/admin/client/delete/'+id);
+        var url = "{{ URL::to('/admin/client/delete/') }}";
+        console.log(url);
+        $("#confirmationForm").attr('action', url +'/'+id);
     });
 </script>
 @stop
