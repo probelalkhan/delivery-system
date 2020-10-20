@@ -27,7 +27,10 @@
                                     <td>{{ $vehicle->category }}</td>
                                     <td>{{ $vehicle->carrier->company_name }}</td>
                                     <td></td>
-                                    <td><a href="#" class="link">Edit</a></td>
+                                    <td>
+                                        <a href="/admin/vehicle/add?vehicle_id={{ $vehicle->id }}" class="link">Edit</a>&nbsp;
+                                        <a href="#" data-tag="{{ $vehicle->id }}" class="link text-danger link-delete" data-toggle="modal" data-target="#confirmationModal">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -36,4 +39,16 @@
             </div>
         </div>
     </div>
+    @include('commons.confirmationdialog')
+
 @stop
+
+@section('js')
+    <script>
+        $(".link-delete").click(function(){
+            var id = $(this).data('tag');
+            $("#confirmationForm").attr('action','/admin/vehicle/delete/'+id);
+        });
+    </script>
+@stop
+

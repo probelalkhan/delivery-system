@@ -16,6 +16,8 @@
 
                         @csrf
 
+                        <input type="hidden" value="{{ $vehicle->id ?? -1 }}" name="vehicle_id" />
+
                         <div class="form-group">
                             <label for="category">Category</label>
                             <select type="text" name="category" id="category" class="custom-select" required>
@@ -35,22 +37,22 @@
 
                         <div class="form-group">
                             <label for="brand">Brand</label>
-                            <input type="text" id="brand" name="brand" class="form-control" />
+                            <input value="{{ $vehicle->brand ?? '' }}" type="text" id="brand" name="brand" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="reference">Reference</label>
-                            <input type="text" id="reference" name="reference" class="form-control" />
+                            <input value="{{ $vehicle->reference ?? '' }}" type="text" id="reference" name="reference" class="form-control" />
                         </div>
 
                         <div class="form-group">
                             <label for="dateofcirculation">Date of Circulation</label>
-                            <input type="date" id="dateofcirculation" name="dateofcirculation" class="form-control" />
+                            <input value="{{ $vehicle->date_of_circulation ?? '' }}" type="date" id="dateofcirculation" name="dateofcirculation" class="form-control" />
                         </div>
 
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save Vehicle</button>
+                            <button type="submit" class="btn btn-primary">{{ $vehicle == null ? 'Save Vehicle' : 'Update Vehicle' }}</button>
                         </div>
                     </form>
                 </div>

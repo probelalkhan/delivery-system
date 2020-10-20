@@ -9,26 +9,38 @@ use Illuminate\Http\Request;
 
 class VehicleController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+
+        $vehicle = Vehicle::find($request->vehicle_id);
+
         $vehicles = Vehicle::all();
         $carriers = Carrier::all();
 
+
         return view('admin.vehicle',[
             'vehicles'=>$vehicles,
-            'carriers'=>$carriers
+            'carriers'=>$carriers,
+            'vehicle'=>$vehicle
         ]);
     }
 
     public function saveVehicle(Request $request){
-        $vehicle = new Vehicle();
+
+        $vehicle = null;
+
+        if($request->vehicle_id == -1)
+            $vehicle = new Vehicle();
+        else
+            $vehicle = Vehicle::find($request->vehicle_id);
+
         $vehicle->category = $request->category;
         $vehicle->carrier_id = $request->carrier_id;
         $vehicle->brand = $request->brand;
         $vehicle->reference = $request->reference;
         $vehicle->date_of_circulation = $request->dateofcirculation;
         $vehicle->save();
-        $request->session()->flash('alert-success', 'Vehicle successful added!');
-        return redirect('admin/vehicle/add');
+        $request->session()->flash('alert-success', 'Vehicle successful added/updated!');
+        return redirect()->back();
     }
 
     public function allVehicles(){
@@ -36,5 +48,11 @@ class VehicleController extends Controller
         return view('admin.vehicles',[
             'vehicles'=>$vehicles
         ]);
+    }
+
+    public function deleteVehicle(Request $request){
+        $vehicle = Vehicle::find($request->vehicle_id);
+        $vehicle->delete();
+        return redirect()->back();
     }
 }
