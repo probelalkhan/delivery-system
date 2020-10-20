@@ -9,13 +9,27 @@ use Illuminate\Http\Request;
 class CarrierController extends Controller
 {
 
-    public function index(){
-        $carriers = Carrier::all();
-        return view('admin.addcarrier');
+    public function index(Request $request){
+        $carrier = null;
+        if($request->carrier_id){
+            $carrier = Carrier::find($request->carrier_id);
+        }
+        return view('admin.addcarrier',[
+            'carrier'=>$carrier
+        ]);
     }
 
     public function saveCarrier(Request $request){
-        $carrier = new Carrier();
+
+        $carrierId = $request->carrier_id;
+
+        $carrier = null;
+
+        if($carrierId == -1)
+            $carrier = new Carrier();
+        else
+            $carrier = Carrier::find($carrierId);
+
         $carrier->company_name = $request->company_name;
         $carrier->ice = $request->ice;
         $carrier->phone = $request->phone;
@@ -25,8 +39,8 @@ class CarrierController extends Controller
         $carrier->framework = $request->framework;
         $carrier->scope = $request->scope;
         $carrier->save();
-        $request->session()->flash('alert-success', 'Carrier successful added!');
-        return redirect('admin/carrier/add');
+        $request->session()->flash('alert-success', 'Carrier successfully Added/Updated');
+        return redirect()->back();
     }
 
     public function allCarriers(){
@@ -34,5 +48,11 @@ class CarrierController extends Controller
         return view('admin.carriers',[
             'carriers'=> $carriers
         ]);
+    }
+
+    public function deleteCarrier(Request $request){
+        $carrier = Carrier::find($request->carrier_id);
+        $carrier->delete();
+        return redirect()->back();
     }
 }

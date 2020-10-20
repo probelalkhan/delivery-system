@@ -19,39 +19,41 @@
 
                         @csrf
 
+                        <input type="hidden" value="{{ $carrier->id ?? -1 }}" name="carrier_id" />
+
                         <div class="form-group">
                             <label for="company_name">Company Name</label>
-                            <input type="text" name="company_name" id="company_name" class="form-control" required/>
+                            <input value="{{ $carrier->company_name ?? '' }}" type="text" name="company_name" id="company_name" class="form-control" required/>
                         </div>
 
                         <div class="form-group">
                             <label for="ice">ICE</label>
-                            <input type="text" name="ice" id="ice" class="form-control"  required/>
+                            <input value="{{ $carrier->ice ?? '' }}" type="text" name="ice" id="ice" class="form-control"  required/>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" name="phone" id="phone" class="form-control" required />
+                            <input value="{{ $carrier->phone ?? '' }}" type="text" name="phone" id="phone" class="form-control" required />
                         </div>
 
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address" class="form-control" required />
+                            <input value="{{ $carrier->address ?? '' }}" type="text" name="address" id="address" class="form-control" required />
                         </div>
 
                         <div class="form-group">
                             <label for="activities">Activities</label>
-                            <input type="text" name="activities" id="activities" class="form-control" required />
+                            <input value="{{ $carrier->activities ?? '' }}" type="text" name="activities" id="activities" class="form-control" required />
                         </div>
 
                         <div class="form-group">
                             <label for="agreement">Agreement</label>
-                            <input type="text" name="agreement" id="agreement" class="form-control" required />
+                            <input value="{{ $carrier->agreement ?? '' }}" type="text" name="agreement" id="agreement" class="form-control" required />
                         </div>
 
                         <div class="form-group">
                             <label for="framework">Framework</label>
-                            <input type="text" name="framework" id="framework" class="form-control" required />
+                            <input value="{{ $carrier->framework ?? '' }}" type="text" name="framework" id="framework" class="form-control" required />
                         </div>
 
                         <div class="form-group">
@@ -64,7 +66,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save Carrier</button>
+                            <button type="submit" class="btn btn-primary">{{ $carrier != null ? 'Update' : 'Save'}}</button>
                         </div>
                     </form>
                 </div>

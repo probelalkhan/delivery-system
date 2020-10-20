@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkadmin'], function () {
         Route::get('/', [App\Http\Controllers\Admin\CarrierController::class, 'allCarriers']);
         Route::get('add', [App\Http\Controllers\Admin\CarrierController::class, 'index']);
         Route::post('add', [App\Http\Controllers\Admin\CarrierController::class, 'saveCarrier']);
+        Route::post('delete/{carrier_id}', [App\Http\Controllers\Admin\CarrierController::class, 'deleteCarrier']);
     });
 
     Route::prefix('vehicle')->group(function(){
