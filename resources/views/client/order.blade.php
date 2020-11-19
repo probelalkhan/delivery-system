@@ -44,7 +44,12 @@
 
                         <div class="form-group">
                             <label for="naturecontainer">Nature Container</label>
-                            <input type="text" name="naturecontainer" id="naturecontainer" class="form-control" />
+                            <select type="text" name="naturecontainer" id="naturecontainer" class="custom-select" required>
+                                <option value="Non perisable">Non perissable</option>
+                                <option value="Perisable">Perissable</option>
+                                <option value="Liquide">Liquide</option>
+                                <option value="Mat dangereuse">Mat dangereuse</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

@@ -21,8 +21,7 @@
                         <div class="form-group">
                             <label for="category">Category</label>
                             <select type="text" name="category" id="category" class="custom-select" required>
-                                <option value="Solo ST">Solo ST</option>
-                                <!-- add more options here -->
+                                @include('commons.categories')
                             </select>
                         </div>
 

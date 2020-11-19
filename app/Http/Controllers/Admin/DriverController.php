@@ -35,11 +35,11 @@ class DriverController extends Controller
         $driver->year_permit = $request->year_permit;
         $driver->experience = $request->experience;
         $driver->no_of_companies = $request->no_of_companies;
-        $driver->vehicle_category = $request->vehicle_category;
+        $driver->vehicle_category = implode(',',$request->vehicle_category);
         $driver->international = $request->international;
-        $driver->delivery_mode = $request->delivery_mode;
+        $driver->delivery_mode = implode(',',$request->delivery_mode);
         $driver->enterprise_category = $request->enterprise_category;
-        $driver->commodity_nature = $request->commodity_nature;
+        $driver->commodity_nature = implode(',',$request->commodity_nature);
         $driver->avg_stay = $request->avg_stay;
         $driver->professional_training = $request->professional_training;
         $driver->carrier_id = $request->carrier_id;

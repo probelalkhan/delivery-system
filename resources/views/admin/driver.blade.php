@@ -56,7 +56,9 @@
 
                         <div class="form-group">
                             <label for="vehicle_category">Vehicle Category</label>
-                            <input value="{{ $driver->vehicle_category ?? '' }}" type="text" name="vehicle_category" id="vehicle_category" class="form-control" />
+                            <select type="text" name="vehicle_category[]" id="category" class="custom-select" multiple required>
+                                @include('commons.categories')
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -68,7 +70,11 @@
                         </div>
                         <div class="form-group">
                             <label for="delivery_mode">Delivery Mode</label>
-                            <input value="{{ $driver->delivery_mode ?? '' }}" type="text" name="delivery_mode" id="delivery_mode" class="form-control" />
+                            <select type="text" name="delivery_mode[]" id="delivery_mode" class="custom-select" multiple required>
+                                <option value="Messagerie">Messagerie</option>
+                                <option value="Affretement">Affretement</option>
+                                <option value="Lots">Lots</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -78,17 +84,20 @@
 
                         <div class="form-group">
                             <label for="commodity_nature">Commodity Nature</label>
-                            <input value="{{ $driver->commodity_nature ?? '' }}" type="text" name="commodity_nature" id="commodity_nature" class="form-control" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="avg_stay">Average Stay</label>
-                            <input value="{{ $driver->avg_stay ?? '' }}" type="text" name="avg_stay" id="avg_stay" class="form-control" />
+                            <select type="text" name="commodity_nature[]" id="commodity_nature" class="custom-select" multiple required>
+                                <option value="Non perisable">Non perissable</option>
+                                <option value="Perisable">Perissable</option>
+                                <option value="Liquide">Liquide</option>
+                                <option value="Mat dangereuse">Mat dangereuse</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="professional_training">Professional Training</label>
-                            <input value="{{ $driver->professional_training ?? '' }}" type="text" name="professional_training" id="professional_training" class="form-control" />
+                            <select type="text" name="professional_training" id="professional_training" class="custom-select" required>
+                                <option value="Qualifie">Qualifie</option>
+                                <option value="Non Qualifie">Non Qualifie</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

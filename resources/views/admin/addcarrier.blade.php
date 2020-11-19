@@ -42,11 +42,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="activities">Activities</label>
-                            <input value="{{ $carrier->activities ?? '' }}" type="text" name="activities" id="activities" class="form-control" required />
-                        </div>
-
-                        <div class="form-group">
                             <label for="agreement">Agreement</label>
                             <input value="{{ $carrier->agreement ?? '' }}" type="text" name="agreement" id="agreement" class="form-control" required />
                         </div>

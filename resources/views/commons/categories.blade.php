@@ -1,0 +1,12 @@
+<option value="Solo ST">Solo ST</option>
+<option value="Solo 14T">Solo 14T</option>
+<option value="Solo Caisson">Solo Caisson</option>
+<option value="Solo Plateau">Solo Plateau</option>
+<option value="Solo Bachee">Solo Bachee</option>
+<option value="Solo Citerne">Solo Citerne</option>
+<option value="Articule T">Articule T</option>
+<option value="Articule Caisson">Articule Caisson</option>
+<option value="Articule Plateau">Articule Plateau</option>
+<option value="Articule Bachee">Articule Bachee</option>
+<option value="Articule Citerne">Articule Citerne</option>
+<option value="Articule Porte Voiture">Articule Porte Voiture</option>

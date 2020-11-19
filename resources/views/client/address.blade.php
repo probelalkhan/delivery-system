@@ -40,7 +40,17 @@
 
                         <div class="form-group">
                             <label for="city">City</label>
-                            <input type="text" name="city" id="city" class="form-control" />
+                            <select name="city" id="city" class="custom-select" required>
+                                <option value="Casablanca">Casablanca</option>
+                                <option value="Rabat">Rabat</option>
+                                <option value="Marrakech">Marrakech</option>
+                                <option value="Tanger">Tanger</option>
+                                <option value="Agadir">Agadir</option>
+                                <option value="Fes">Fes</option>
+                                <option value="Meknes">Maknes</option>
+                                <option value="Oujda">Oujda</option>
+                                <option value="El Jadida">El Jadida</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
